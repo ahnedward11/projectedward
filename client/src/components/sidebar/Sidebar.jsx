@@ -1,4 +1,5 @@
 import "./sidebar.css";
+import { Link } from "react-router-dom";
 import {
   RssFeed,
   Chat,
@@ -10,7 +11,7 @@ import {
   Event,
   School,
 } from "@material-ui/icons";
-import { Users } from "../../dummyData";
+
 import CloseFriend from "../closeFriend/CloseFriend";
 
 export default function Sidebar() {
@@ -21,11 +22,15 @@ export default function Sidebar() {
         <ul className="sidebarList">
           <li className="sidebarListItem">
             <RssFeed className="sidebarIcon" />
-            <span className="sidebarListItemText">Feed</span>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <span className="sidebarListItemText">Feed</span>
+            </Link>
           </li>
           <li className="sidebarListItem">
             <Chat className="sidebarIcon" />
-            <span className="sidebarListItemText">Chats</span>
+            <Link to="/messenger" style={{ textDecoration: "none" }}>
+              <span className="sidebarListItemText">Chats</span>
+            </Link>
           </li>
           <li className="sidebarListItem">
             <PlayCircleFilledOutlined className="sidebarIcon" />
@@ -37,7 +42,7 @@ export default function Sidebar() {
           </li>
           <li className="sidebarListItem">
             <Bookmark className="sidebarIcon" />
-            <span className="sidebarListItemText">Bookmarks</span>
+            <span className="sidebarListItemText">Liked Posts</span>
           </li>
           <li className="sidebarListItem">
             <HelpOutline className="sidebarIcon" />
@@ -58,11 +63,11 @@ export default function Sidebar() {
         </ul>
         <button className="sidebarButton">Show More</button>
         <hr className="sidebarHr" />
-        <ul className="sidebarFriendList">
+        {/* <ul className="sidebarFriendList">
           {Users.map((u) => (
             <CloseFriend key={u.id} user={u} />
           ))}
-        </ul>
+        </ul> */}
       </div>
     </div>
   );

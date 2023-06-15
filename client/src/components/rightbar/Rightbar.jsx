@@ -46,7 +46,25 @@ export default function Rightbar({ user }) {
   };
   
 
-
+  {friends.map((friend) => (
+    <Link
+      to={"/profile/" + friend.username}
+      style={{ textDecoration: "none" }}
+    >
+      <div className="rightbarFollowing">
+        <img
+          src={
+            friend.profilePicture
+              ? friend.profilePicture
+              : PF + "person/noAvatar.png"
+          }
+          alt=""
+          className="rightbarFollowingImg"
+        />
+        <span className="rightbarFollowingName">{friend.username}</span>
+      </div>
+    </Link>
+  ))}
 
 
   const HomeRightbar = () => {
@@ -61,13 +79,17 @@ export default function Rightbar({ user }) {
         <img className="rightbarAd" src="assets/ad.png" alt="" />
         <h4 className="rightbarTitle">Online Friends</h4>
         <ul className="rightbarFriendList">
-          {Users.map((u) => (
+          {friends.map((u) => (
             <Online key={u.id} user={u} />
           ))}
         </ul>
       </>
     );
   };
+
+
+
+
 
   const ProfileRightbar = () => {
     return (
@@ -95,10 +117,11 @@ export default function Rightbar({ user }) {
               style={{ textDecoration: "none" }}
             >
               <div className="rightbarFollowing">
+
                 <img
                   src={
                     friend.profilePicture
-                      ? PF + friend.profilePicture
+                      ? friend.profilePicture
                       : PF + "person/noAvatar.png"
                   }
                   alt=""
