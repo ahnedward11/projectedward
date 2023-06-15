@@ -6,7 +6,8 @@ import {
   PlayCircleFilledOutlined,
   Group,
   Bookmark,
-  HelpOutline,
+  SportsBasketball,
+  Settings,
   WorkOutline,
   Event,
   School,
@@ -22,19 +23,21 @@ export default function Sidebar() {
         <ul className="sidebarList">
           <li className="sidebarListItem">
             <RssFeed className="sidebarIcon" />
-            <Link to="/" style={{ textDecoration: "none" }}>
+            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
               <span className="sidebarListItemText">Feed</span>
             </Link>
           </li>
           <li className="sidebarListItem">
             <Chat className="sidebarIcon" />
-            <Link to="/messenger" style={{ textDecoration: "none" }}>
+            <Link to="/messenger" style={{ textDecoration: "none", color: "black" }}>
               <span className="sidebarListItemText">Chats</span>
             </Link>
           </li>
           <li className="sidebarListItem">
-            <PlayCircleFilledOutlined className="sidebarIcon" />
-            <span className="sidebarListItemText">Videos</span>
+            <SportsBasketball className="sidebarIcon" />
+            <Link to="/nba" style={{ textDecoration: "none", color: "black" }}>
+            <span className="sidebarListItemText">NBA Stats</span>
+            </Link>
           </li>
           <li className="sidebarListItem">
             <Group className="sidebarIcon" />
@@ -42,13 +45,15 @@ export default function Sidebar() {
           </li>
           <li className="sidebarListItem">
             <Bookmark className="sidebarIcon" />
-            <span className="sidebarListItemText">Liked Posts</span>
+            <Link to="/likedposts" style={{ textDecoration: "none", color: "black" }}>
+              <span className="sidebarListItemText">Liked Posts</span>
+            </Link>
           </li>
           <li className="sidebarListItem">
-            <HelpOutline className="sidebarIcon" />
-            <span className="sidebarListItemText">Questions</span>
+            <Settings className="sidebarIcon" />
+            <span className="sidebarListItemText">Settings</span>
           </li>
-          <li className="sidebarListItem">
+          {/* <li className="sidebarListItem">
             <WorkOutline className="sidebarIcon" />
             <span className="sidebarListItemText">Jobs</span>
           </li>
@@ -59,9 +64,9 @@ export default function Sidebar() {
           <li className="sidebarListItem">
             <School className="sidebarIcon" />
             <span className="sidebarListItemText">Courses</span>
-          </li>
+          </li> */}
         </ul>
-        <button className="sidebarButton">Show More</button>
+        {/* <button className="sidebarButton">Show More</button> */}
         <hr className="sidebarHr" />
         {/* <ul className="sidebarFriendList">
           {Users.map((u) => (

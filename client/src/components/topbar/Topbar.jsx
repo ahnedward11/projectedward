@@ -1,12 +1,27 @@
 import "./topbar.css";
-import { Search, Person, Chat, Notifications } from "@material-ui/icons";
+
+import { Search, Person, Chat, ExitToApp } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { loginCall } from "../../apiCalls";
+import {useNavigate} from "react-router-dom"
 
 export default function Topbar() {
   const { user } = useContext(AuthContext);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const navigate = useNavigate();
+  const { isFetching, dispatch } = useContext(AuthContext);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    loginCall(
+      { email: null, password: null },
+      dispatch
+    );
+    // navigate("/")
+
+  };
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
@@ -25,7 +40,7 @@ export default function Topbar() {
       </div>
       <div className="topbarRight">
         <div className="topbarLinks">
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/" style={{ textDecoration: "none" , color: "white"}}>
             <span className="topbarLink">Homepage</span>
           </Link>
           {/* <span className="topbarLink">Timeline</span> */}
@@ -33,18 +48,21 @@ export default function Topbar() {
         <div className="topbarIcons">
           <div className="topbarIconItem">
             <Person />
-            <span className="topbarIconBadge">1</span>
+            {/* <span className="topbarIconBadge">1</span> */}
           </div>
           <div className="topbarIconItem">
-            <Chat />
-            <Link to= "/messenger" style={{ textDecoration: "none" }}>
-              <span className="topbarIconBadge">2</span>
+            <Link to= "/messenger" style={{ textDecoration: "none", color: "white" }}>
+              <Chat />
+              {/* <span className="topbarIconBadge">2</span> */}
             </Link>
             
           </div>
           <div className="topbarIconItem">
-            <Notifications />
-            <span className="topbarIconBadge">1</span>
+            
+            <Link to="/login" onSubmit={handleClick} style={{ textDecoration: "none", color: "white" }}>
+            {/* <span className="topbarIconBadge">?</span> */}
+            <ExitToApp />
+            </Link>
           </div>
         </div>
         <Link to={`/profile/${user.username}`}>

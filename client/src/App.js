@@ -3,6 +3,9 @@ import Login from "./pages/login/Login";
 import Profile from "./pages/profile/Profile";
 import Register from "./pages/register/Register";
 import Messenger from "./pages/messenger/Messenger";
+import LikedPosts from "./pages/likedposts/Likedpost"
+import Nba from "./pages/nba/Nba"
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,7 +27,9 @@ function App() {
         <Route path="/register" element={<Register/>} exact />
         <Route path="/profile/:username" element={<Profile/>} exact /> */}
         <Route path="/" element={user ? <Home/> : <Register/>} exact />
-        <Route path="/login" element={user ? <Navigate to ="/" /> :<Login/>} exact />
+        <Route path="/login" element={<Login/>} exact />
+        <Route path="/likedposts" element={<LikedPosts/>} exact />
+        <Route path="/nba" element={<Nba/>} exact />
         <Route path="/register" element={user ? <Navigate to ="/" /> :<Register/>} exact />
         <Route path="/profile/:username" element={!user ? <Navigate to="/" /> : <Profile />} exact />
         <Route path="/messenger" element={<Messenger/>} exact />

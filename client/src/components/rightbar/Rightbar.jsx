@@ -12,8 +12,13 @@ export default function Rightbar({ user }) {
   const [friends, setFriends] = useState([]);
   const { user: currentUser, dispatch } = useContext(AuthContext);
   const [followed, setFollowed] = useState(
-    currentUser.followings?.includes(user?.id)
+    currentUser.followings.includes(user?.id)
   );
+
+  // useEffect(()=> {
+  //   setFollowed(currentUser.followings.includes(user?.id));
+
+  // }, [currentUser, user.id]);
 
   useEffect(() => {
     const getFriends = async () => {
@@ -44,56 +49,36 @@ export default function Rightbar({ user }) {
     } catch (err) {
     }
   };
-  
-
-  {friends.map((friend) => (
-    <Link
-      to={"/profile/" + friend.username}
-      style={{ textDecoration: "none" }}
-    >
-      <div className="rightbarFollowing">
-        <img
-          src={
-            friend.profilePicture
-              ? friend.profilePicture
-              : PF + "person/noAvatar.png"
-          }
-          alt=""
-          className="rightbarFollowingImg"
-        />
-        <span className="rightbarFollowingName">{friend.username}</span>
-      </div>
-    </Link>
-  ))}
-
 
   const HomeRightbar = () => {
     return (
       <>
-        <div className="birthdayContainer">
+        {/* <div className="birthdayContainer">
           <img className="birthdayImg" src="assets/gift.png" alt="" />
           <span className="birthdayText">
             <b>Pola Foster</b> and <b>3 other friends</b> have a birhday today.
           </span>
-        </div>
-        <img className="rightbarAd" src="assets/ad.png" alt="" />
+        </div> */}
+        {/* <img className="rightbarAd" src="assets/ad.png" alt="" /> */}
         <h4 className="rightbarTitle">Online Friends</h4>
         <ul className="rightbarFriendList">
-          {friends.map((u) => (
-            <Online key={u.id} user={u} />
+          {friends.map((friend) => (
+            <span className="rightbarFollowingName">{friend.username}</span>
           ))}
         </ul>
       </>
     );
   };
 
-
-
-
-
   const ProfileRightbar = () => {
     return (
       <>
+        {user.username !== currentUser.username && (
+          <button className="rightbarFollowButton" onClick={handleClick}>
+            {followed ? "Unfollow" : "Follow"}
+            {followed ? <Remove /> : <Add />}
+          </button>
+        )}
         <h4 className="rightbarTitle">User information</h4>
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
@@ -106,7 +91,13 @@ export default function Rightbar({ user }) {
           </div>
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">Relationship:</span>
-            <span className="rightbarInfoValue">{user.relationship ===1 ? "Single" :user.relationship ===2 ? "Married" : "-"}</span>
+            <span className="rightbarInfoValue">
+              {user.relationship === 1
+                ? "Single"
+                : user.relationship === 1
+                ? "Married"
+                : "-"}
+            </span>
           </div>
         </div>
         <h4 className="rightbarTitle">User friends</h4>
@@ -117,7 +108,6 @@ export default function Rightbar({ user }) {
               style={{ textDecoration: "none" }}
             >
               <div className="rightbarFollowing">
-
                 <img
                   src={
                     friend.profilePicture

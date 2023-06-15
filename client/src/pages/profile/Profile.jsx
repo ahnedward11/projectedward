@@ -6,8 +6,10 @@ import Rightbar from "../../components/rightbar/Rightbar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
+import Update from "../../components/update/Update";
 
 export default function Profile() {
+  const [openUpdate, setOpenUpdate] = useState(false);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [user, setUser] = useState({});
   const username = useParams().username
@@ -50,13 +52,17 @@ export default function Profile() {
             <div className="profileInfo">
                 <h4 className="profileInfoName">{user.username}</h4>
                 <span className="profileInfoDesc">{user.desc}</span>
+                <button onClick={() => setOpenUpdate(true)}>update</button>
             </div>
           </div>
           <div className="profileRightBottom">
             <Feed username={username}/>
             <Rightbar user={user}/>
+            
           </div>
         </div>
+
+        {openUpdate && <Update setOpenUpdate={setOpenUpdate}/>}
       </div>
     </>
   );

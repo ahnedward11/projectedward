@@ -20,11 +20,8 @@ const io = require("socket.io")(8900, {
   
 
   io.on("connection", (socket) => {
-    //when ceonnect
     console.log("a user connected.");
     io.emit("welcome", "hello this is the socket server!")
-  
-    //take userId and socketId from user
     socket.on("addUser", (userId) => {
       addUser(userId, socket.id);
       io.emit("getUsers", users);

@@ -33,6 +33,8 @@ export default function Messenger() {
     });
   }, []);
 
+
+
   useEffect(() => {
     arrivalMessage &&
       currentChat?.members.includes(arrivalMessage.sender) &&
@@ -43,6 +45,7 @@ export default function Messenger() {
   useEffect(() => {
     socket.current.emit("addUser", user._id);
     socket.current.on("getUsers", (users) => {
+      console.log(users)
       setOnlineUsers(
         user.followings.filter((f) => users.some((u) => u.userId === f))
       );
@@ -82,15 +85,15 @@ export default function Messenger() {
       conversationId: currentChat._id,
     };
 
-//     const receiverId = currentChat.members.find(
-//       (member) => member !== user._id
-//     );
+    const receiverId = currentChat.members.find(
+      (member) => member !== user._id
+    );
 
-//     socket.current.emit("sendMessage", {
-//       senderId: user._id,
-//       receiverId,
-//       text: newMessage,
-//     });
+    socket.current.emit("sendMessage", {
+      senderId: user._id,
+      receiverId,
+      text: newMessage,
+    });
 
     try {
       const res = await axios.post("/messages", message);
