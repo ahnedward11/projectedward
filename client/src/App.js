@@ -22,31 +22,38 @@ function App() {
   return (
     <Router> 
       <Routes>  
-        {/* <Route path="/" element={<Home/>} exact />
-        <Route path="/login" element={<Login/>} exact />
-        <Route path="/register" element={<Register/>} exact />
-        <Route path="/profile/:username" element={<Profile/>} exact /> */}
-        <Route path="/" element={user ? <Home/> : <Register/>} exact />
-        <Route path="/login" element={<Login/>} exact />
-        <Route path="/likedposts" element={<LikedPosts/>} exact />
-        <Route path="/nba" element={<Nba/>} exact />
-        <Route path="/register" element={user ? <Navigate to ="/" /> :<Register/>} exact />
-        <Route path="/profile/:username" element={!user ? <Navigate to="/" /> : <Profile />} exact />
-        <Route path="/messenger" element={<Messenger/>} exact />
-        {/* <Route exact path="/">
-          element = {Login}
-        </Route> */}
-        {/* <Route path="/login">
-          element = {Login}
-        </Route>
+      {/* <Route exact path="/"
+        element={user ? <Home /> : <Register />}
+        />
+        <Route path="/login">{user ? <Navigate to="/" /> : <Login />}</Route>
         <Route path="/register">
-          element = {Register}
+          {user ? <Navigate to="/" /> : <Register />}
+        </Route>
+        <Route path="/messenger">
+          {!user ? <Navigate to="/" /> : <Messenger />}
         </Route>
         <Route path="/profile/:username">
-          element = {Profile}
+          <Profile />
         </Route> */}
+        <Route exact path="/" element={user ? <Home/> : <Register/>}  />
+        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />}/>
+
+        <Route path="/nba" element={<Nba/>} exact />
+        <Route path="/register" element={user ? <Navigate to ="/" /> :<Register/>} exact />
+        <Route path="/profile/:username" element={user ? <Profile />:<Login />} exact />
+        <Route path="/messenger" element={user ? <Messenger/> : <Login />} exact />
       </Routes>
     </Router>
 )}
 
 export default App;
+
+
+
+{/* <Route path="/" element={user ? <Home/> : <Register/>} exact />
+<Route path="/login" element={<Login/>} exact />
+<Route path="/likedposts" element={<LikedPosts/>} exact />
+<Route path="/nba" element={<Nba/>} exact />
+<Route path="/register" element={user ? <Navigate to ="/" /> :<Register/>} exact />
+<Route path="/profile/:username" element={!user ? <Navigate to="/" /> : <Profile />} exact />
+<Route path="/messenger" element={<Messenger/>} exact /> */}

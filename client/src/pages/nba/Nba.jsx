@@ -11,13 +11,16 @@ class Nba extends React.Component {
         super(props)
         this.state={
           playerName: null,
+          year: null,
           playerStats: {}
         }
       }
     
     handleSubmit = (e) => {
       e.preventDefault();
-      this.getPlayerId()
+      var theyear = document.getElementById('year').value
+      this.getPlayerId(theyear)
+      console.log(theyear)
       console.log(this.state.playerName)
     }
     
@@ -29,8 +32,13 @@ class Nba extends React.Component {
         alert("Please type players name!")
       }
     }
+
+    handleyearChange = (event) => {
+      this.setState({year: event})
+    }
+
     
-      getPlayerId = () => {
+      getPlayerId = (theyear) => {
         axios.get(`https://www.balldontlie.io/api/v1/players?search=${this.state.playerName}`)
         .then(async res => {
           // console.log(res.data.data)
@@ -39,7 +47,7 @@ class Nba extends React.Component {
           } else if(res.data.data.length > 1){
             alert("Pleases specify the name more!")
           } else{
-            await this.getPlayerStats(res.data.data[0].id)
+            await this.getPlayerStats(res.data.data[0].id, theyear)
     
           }
         }).catch(err => {
@@ -47,10 +55,12 @@ class Nba extends React.Component {
         })
       }
     
-      getPlayerStats = (playerId) => {
-        axios.get(`https://www.balldontlie.io/api/v1/season_averages?season=2020&player_ids[]=${playerId}`)
+      getPlayerStats = (playerId, theyear) => {
+        
+        axios.get(`https://www.balldontlie.io/api/v1/season_averages?season=${theyear}&player_ids[]=${playerId}`)
         .then(async res => {
           console.log(res.data.data)
+          console.log(this.state.year)
           this.setState({ playerStats: res.data.data[0]})
         }).catch(err => {
           console.log(err)
@@ -74,6 +84,25 @@ class Nba extends React.Component {
                   value={this.state.value}
                   onChange={this.handleChange}
                   placeholder="please enter players name"
+                />
+                </label>
+                <label className="profileInfo">
+                Second Name
+                <input 
+                  type="text"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                  placeholder="please enter players name"
+                />
+                </label>
+                <label className="profileInfo">
+                Year
+                <input 
+                  type="text"
+                  id = 'year'
+                  value={this.state.value}
+                  onChange={this.handleyearChange}
+                  placeholder="please enter the year"
                 />
                 </label>
                 <input type="submit" value="Submit"/>

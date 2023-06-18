@@ -3,7 +3,7 @@ import { Users } from "../../dummyData";
 import Online from "../online/Online";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@material-ui/icons";
 
@@ -15,10 +15,7 @@ export default function Rightbar({ user }) {
     currentUser.followings.includes(user?.id)
   );
 
-  // useEffect(()=> {
-  //   setFollowed(currentUser.followings.includes(user?.id));
 
-  // }, [currentUser, user.id]);
 
   useEffect(() => {
     const getFriends = async () => {
@@ -50,16 +47,51 @@ export default function Rightbar({ user }) {
     }
   };
 
+
+  const handleMessage = async () => {
+    const newConversation = {
+      senderId: currentUser._id,
+      receiverId: user._id,
+    };
+    try {
+      const convo = await axios.get(`/conversations/find/${currentUser._id}/${user._id}`)
+      console.log(convo)
+      if (convo.data){
+        console.log("already made")
+        console.log(currentUser._id)
+        console.log(user._id)
+        
+        
+      }
+      else{
+        await axios.post("/conversations", newConversation)
+        
+        
+      }
+
+      // if (await axios.get(`/conversations/find/${currentUser._id}/${user._id}`)){
+      //   console.log("already made")
+      //   console.log(currentUser._id)
+      //   console.log(user._id)
+      // }
+      // else{
+      //   await axios.post("/conversations", newConversation)
+      // }
+     
+    } catch (err) {
+    }
+  };
+
   const HomeRightbar = () => {
     return (
       <>
-        {/* <div className="birthdayContainer">
+        <div className="birthdayContainer">
           <img className="birthdayImg" src="assets/gift.png" alt="" />
           <span className="birthdayText">
-            <b>Pola Foster</b> and <b>3 other friends</b> have a birhday today.
+            <b>Todays Debate Topic:</b> Who is the greatest basketball player ever?
           </span>
-        </div> */}
-        {/* <img className="rightbarAd" src="assets/ad.png" alt="" /> */}
+        </div>
+        <img className="rightbarAd" src="https://www.si.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_1240/MTY4MDMxNzcwMzczNzI3NTA1/mj_vs_bronjpg.webp" alt="" />
         <h4 className="rightbarTitle">Online Friends</h4>
         <ul className="rightbarFriendList">
           {friends.map((friend) => (
@@ -78,6 +110,13 @@ export default function Rightbar({ user }) {
             {followed ? "Unfollow" : "Follow"}
             {followed ? <Remove /> : <Add />}
           </button>
+        )}
+        {user.username !== currentUser.username && (
+          <Link to= "/messenger" style={{ textDecoration: "none" }}>
+          <button className="rightbarFollowButton" onClick={handleMessage}>
+            Message
+          </button>
+          </Link>
         )}
         <h4 className="rightbarTitle">User information</h4>
         <div className="rightbarInfo">

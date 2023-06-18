@@ -39,15 +39,15 @@ export default function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
             <img
               className="chatOnlineImg"
               src={
-                o?.profilePicture
-                  ? PF + o.profilePicture
+                currentId?.profilePicture
+                  ? PF + currentId.profilePicture
                   : PF + "person/noAvatar.png"
               }
               alt=""
             />
             <div className="chatOnlineBadge"></div>
           </div>
-          <span className="chatOnlineName">{o?.username}</span>
+          <span className="chatOnlineName">{currentId?.username}</span>
         </div>
       ))}
     </div>

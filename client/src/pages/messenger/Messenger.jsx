@@ -27,6 +27,7 @@ export default function Messenger() {
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
+        receiver: data.receiverId,
         text: data.text,
         createdAt: Date.now(),
       });
@@ -107,14 +108,15 @@ export default function Messenger() {
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
-console.log(messages)
+// console.log(messages)
+// console.log(currentChat)
 
   return (
     <>
       <Topbar />
       <div className="messenger">
         <div className="chatMenu">
-          <div className="chatMenuWrapper">
+          <div className="chatMenuWrapper">  
             <input placeholder="Search for friends" className="chatMenuInput" />
 
             {conversations.map((c) => (
