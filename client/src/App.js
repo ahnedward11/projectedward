@@ -3,8 +3,9 @@ import Login from "./pages/login/Login";
 import Profile from "./pages/profile/Profile";
 import Register from "./pages/register/Register";
 import Messenger from "./pages/messenger/Messenger";
-import LikedPosts from "./pages/likedposts/Likedpost"
+import styled from 'styled-components'
 import Nba from "./pages/nba/Nba"
+
 
 import {
   BrowserRouter as Router,
@@ -17,9 +18,22 @@ import {
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 
+// const Container = styled.div`
+//   height: 100vh;
+//   scroll-snap-type: y mandatory;
+//   scroll-behavior: smooth;
+//   overflow-y: auto;
+//   scrollbar-width: none;
+//   color: white;
+//   background: url("./img/bg.jpeg");
+//   &::-webkit-scrollbar{
+//     display: none;
+//   }
+// `;
 function App() {
   const {user} = useContext(AuthContext)
   return (
+    // <Container>
     <Router> 
       <Routes>  
       {/* <Route exact path="/"
@@ -44,6 +58,7 @@ function App() {
         <Route path="/messenger" element={user ? <Messenger/> : <Login />} exact />
       </Routes>
     </Router>
+    // </Container>
 )}
 
 export default App;
