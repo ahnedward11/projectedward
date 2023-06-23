@@ -83,9 +83,6 @@ export default function Post({ post, uuser }) {
             />
             <span className="postLikeCounter">{like} people like it</span>
           </div>
-          {/* <div className="postBottomRight">
-            <span className="postCommentText">{post.comment} comments</span>
-          </div> */}
         </div>
       </div>
     </div>

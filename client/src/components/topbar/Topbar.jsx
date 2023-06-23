@@ -46,7 +46,7 @@ export default function Topbar() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    // navigate("/login")
+    navigate("/home")
     console.log("handleclick in here")
     loginCall(
       { email: null, password: null },
@@ -95,21 +95,21 @@ export default function Topbar() {
           {/* <span className="topbarLink">Timeline</span> */}
         </div>
         <div className="topbarIcons">
-          <div className="topbarIconItem">
+          {/* <div className="topbarIconItem">
             <Person />
-            {/* <span className="topbarIconBadge">1</span> */}
-          </div>
-          <div className="topbarIconItem">
+
+          </div> */}
+          {/* <div className="topbarIconItem">
             <Link to= "/messenger" style={{ textDecoration: "none", color: "white" }}>
               <Chat />
-              {/* <span className="topbarIconBadge">2</span> */}
+
             </Link>
             
-          </div>
+          </div> */}
           <div className="topbarIconItem">
             <form  onSubmit={handleClick}>
 
-            <button to= "/login"  type="submit" disabled={isFetching}>
+            <button to= "/home"  type="submit" disabled={isFetching}>
             <ExitToApp />
             </button>
 
