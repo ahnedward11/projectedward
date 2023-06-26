@@ -86,13 +86,13 @@ export default function Rightbar({ user }) {
     return (
       <>
         <div className="birthdayContainer">
-          <img className="birthdayImg" src="assets/gift.png" alt="" />
+          {/* <img className="birthdayImg" src="assets/gift.png" alt="" /> */}
           <span className="birthdayText">
             <b>Todays Debate Topic:</b> Who is the greatest basketball player ever?
           </span>
         </div>
         <img className="rightbarAd" src="https://www.si.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_1240/MTY4MDMxNzcwMzczNzI3NTA1/mj_vs_bronjpg.webp" alt="" />
-        <h4 className="rightbarTitle">Online Friends</h4>
+        {/* <h4 className="rightbarTitle">Online Friends</h4> */}
         <ul className="rightbarFriendList">
           {friends.map((friend) => (
             <span className="rightbarFollowingName">{friend.username}</span>

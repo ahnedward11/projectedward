@@ -19,12 +19,14 @@ class Nba extends React.Component {
     handleSubmit = (e) => {
       e.preventDefault();
       var theyear = document.getElementById('year').value
+      // this.setState({year:theyear})
       this.getPlayerId(theyear)
       console.log(theyear)
       console.log(this.state.playerName)
     }
     
     handleChange = (event) => {
+      this.id = event;
       const replace = event.target.value.split(" ").join("_");
       if(replace.length > 0){
         this.setState({playerName: replace})
@@ -34,7 +36,8 @@ class Nba extends React.Component {
     }
 
     handleyearChange = (event) => {
-      this.setState({year: event})
+      console.log("In handleyear")
+      // this.setState({year: theyear})
     }
 
     
@@ -62,6 +65,8 @@ class Nba extends React.Component {
           console.log(res.data.data)
           console.log(this.state.year)
           this.setState({ playerStats: res.data.data[0]})
+          console.log(playerId)
+          this.setState({srcc: `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/203500.png`} )
         }).catch(err => {
           console.log(err)
         })
@@ -72,10 +77,13 @@ class Nba extends React.Component {
         <Topbar />
         <div className="homeContainer">
           <Sidebar />
+          
           <div className="profileRight">
             <div className="profileRightTop">
               <div className="profileCover">
               <div className="App">
+              <div >
+              <div className="loginRight">
                 <form className="loginBox" onSubmit={this.handleSubmit}>
                 <label className="profileInfo">
                 Name
@@ -98,25 +106,35 @@ class Nba extends React.Component {
                 </label>
                 <input type="submit" value="Submit"/>
                 </form >
+                </div>
+                </div>
                 <div className="post">
                   <div className="postWrapper">
                     <div className="postTop">
                       <div className="postTopLeft">
+                      {/* <img
+                        className="postProfileImg"
+                        src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/203500.png`}
+                        alt=""
+                      /> */}
                         <span className="postUsername">{this.state.playerName}</span>
-                        <span className="postDate"></span>
+                        <span className="postDate">{this.state.playerStats["season"]}</span>
                       </div>
                       <div className="postTopRight">
                       </div>
                     </div>
                     <div className="postCenter">
-                      <span className="postText">games played: {this.state.playerStats["games_played"]}</span><br />
-                      <span className="postText">points averaged: {this.state.playerStats["pts"]}</span><br />
-                      <span className="postText">rebounds averaged: {this.state.playerStats["reb"]}</span><br />
-                      <span className="postText">assists averaged: {this.state.playerStats["ast"]}</span>
+                      <span className="postText">Games Played: {this.state.playerStats["games_played"]}</span><br />
+                      <span className="postText">Points Averaged: {this.state.playerStats["pts"]}</span><br />
+                      <span className="postText">Rebounds Averaged: {this.state.playerStats["reb"]}</span><br />
+                      <span className="postText">Assists Averaged: {this.state.playerStats["ast"]}</span><br />
+                      <span className="postText">Field Goal Percentage: {this.state.playerStats["fg_pct"]}</span><br />
+                      <span className="postText">Steals Averaged: {this.state.playerStats["stl"]}</span><br />
+                      <span className="postText">Blocks Averaged: {this.state.playerStats["blk"]}</span><br />
                       <img className="postImg" src="" alt="" />
                     </div>
-                    <div className="postBottom">
-                      </div>
+                    {/* <div className="postBottom">
+                      </div> */}
                     </div>
                   </div>
                 </div>

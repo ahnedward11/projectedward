@@ -26,7 +26,7 @@ export default function Login() {
             <h3 className="loginLogo">EdApp</h3>
           </Link>
           <span className="loginDesc">
-          Sports All In One
+          Welcome!
           </span>
         </div>
         <div className="loginRight">

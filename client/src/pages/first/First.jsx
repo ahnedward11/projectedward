@@ -203,10 +203,10 @@ const Img = styled.img`
            {/* <Subtitle>What we Do</Subtitle> */}
          </WhatWeDo>
          <Desc>
-           we enjoy creating delightful, human-centered digital experiences.
+           we enjoy creating immersive, human interactive experiences.
          </Desc>
-         <a href="/register">
-         <Button>Register</Button>
+         <a href="/login">
+         <Button>Log In</Button>
          </a>
        </Left>
        <Right>
@@ -225,7 +225,7 @@ const Img = styled.img`
             </Sphere>
           </Suspense>
         </Canvas>
-        <Img src="./img/moon.png" />
+        <Img src="./img/friend1.png" />
       </Right>
     </Container>
   </Section>
