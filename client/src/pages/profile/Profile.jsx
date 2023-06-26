@@ -64,7 +64,7 @@ export default function Profile() {
 
         {/* {openUpdate && <Update setOpenUpdate={setOpenUpdate}/>} */}
       </div>
-    </>
+      </>
   );
 }
 
