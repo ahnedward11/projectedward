@@ -52,6 +52,7 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/conversations", conversationRoute);
 app.use("/api/messages", messageRoute);
+// app.use(cors({origin}))
 
 app.listen(8800, () => {
   console.log("Backend server is running!");
