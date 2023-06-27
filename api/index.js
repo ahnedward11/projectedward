@@ -30,9 +30,9 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
 
-app.use(cors({
-  origin: ["http://localhost:8800", "https://projed.onrender.com"]
-}))
+// app.use(cors({
+//   origin: ["http://localhost:8800", "https://projed.onrender.com"]
+// }))
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
