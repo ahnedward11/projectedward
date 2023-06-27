@@ -58,8 +58,6 @@ export default function Topbar() {
   };
   return (
     <div style={{backgroundImage:`url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80")` }}>
-
-    
     <div className="topbarContainer">
       <div className="topbarLeft">
         <Link to="/" style={{ textDecoration: "none" }}>
@@ -71,41 +69,18 @@ export default function Topbar() {
           <form action="" method="get" className="formset" onSubmit={handleSubmit}> 
           <Search className="searchIcon" />
           <input 
-            // placeholder="Search for friend"
             className="searchInput"
             id = 'searchbar'
           />
-   
-          {/* <input type="submit" value="Submit"/> */}
-          {/* <button onClick={handleSubmit}>
-            <Search className="searchIcon" />
-          </button> */}
-          </form>
-        </div>
-
-        {/* <Link  to={`/profile/${search}`} style={{ textDecoration: "none" }}>
-        HELLO
-        </Link> */}
       </div>
       <div className="topbarRight">
         <div className="topbarLinks">
           <Link to="/" style={{ textDecoration: "none" , color: "white"}}>
             <span className="topbarLink">Homepage</span>
           </Link>
-          {/* <span className="topbarLink">Timeline</span> */}
+
         </div>
         <div className="topbarIcons">
-          {/* <div className="topbarIconItem">
-            <Person />
-
-          </div> */}
-          {/* <div className="topbarIconItem">
-            <Link to= "/messenger" style={{ textDecoration: "none", color: "white" }}>
-              <Chat />
-
-            </Link>
-            
-          </div> */}
           <div className="topbarIconItem">
             <form  onSubmit={handleClick}>
 
@@ -133,21 +108,3 @@ export default function Topbar() {
   );
 }
 
-
-            {/* <Link to="/login" onSubmit={handleClick} style={{ textDecoration: "none", color: "white" }}> */}
-            {/* <span className="topbarIconBadge">?</span> */}
-            {/* </Link> */}
-
-
-              {/* <button to= "/login" className="loginButton" type="submit" disabled={isFetching}> */}
-                 {/* </button> */}
-
-          //        <div className="topbarIconItem">
-          // <Link to= "/login" type="submit" style={{ textDecoration: "none", color: "white" }}>
-          //   {/* <form  onSubmit={handleClick}> */}
-          //   <button className="loginButton" type="submit" disabled={isFetching}> 
-          //     <ExitToApp />
-          //    </button> 
-          //   {/* </form> */}
-          //   </Link>
-          // </div>

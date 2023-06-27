@@ -24,6 +24,8 @@ function App() {
   const {user} = useContext(AuthContext)
   return (
 
+      
+
     <Router> 
       <Routes>  
         <Route path="/home" element={<First/>} exact />
