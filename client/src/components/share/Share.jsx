@@ -50,7 +50,7 @@ export default function Share() {
             src={
               user.profilePicture
                 ? user.profilePicture
-                : "./img/noAvatar.png"
+                : "../img/noAvatar.png"
             }
             alt=""
           />
