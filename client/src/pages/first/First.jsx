@@ -225,7 +225,7 @@ const Img = styled.img`
             </Sphere>
           </Suspense>
         </Canvas>
-        <Img src="./img/friend1.png" />
+        <Img src="./img/kane.png" />
       </Right>
     </Container>
   </Section>
