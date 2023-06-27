@@ -17,7 +17,7 @@ export default function Profile() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users?username=${username}`);
+      const res = await axios.get(`https://idkman-fpcq.onrender.com/api/users?username=${username}`);
       setUser(res.data);
     };
     fetchUser();
@@ -35,7 +35,7 @@ export default function Profile() {
                 src={
                   user.coverPicture
                     ? user.coverPicture
-                    : PF + "person/noCover.png"
+                    : "./noCover.png"
                 }
                 alt=""
               />
@@ -44,7 +44,7 @@ export default function Profile() {
                 src={
                   user.profilePicture
                     ? user.profilePicture
-                    : PF + "person/noAvatar.png"
+                    : "./noAvatar.png"
                 }
                 alt=""
               />

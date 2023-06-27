@@ -24,7 +24,7 @@ export default function Register() {
         password: password.current.value,
       };
       try {
-        await axios.post("/auth/register", user);
+        await axios.post("https://idkman-fpcq.onrender.com/api/auth/register", user);
         navigate("/login")
       } catch (err) {
         console.log(err);
