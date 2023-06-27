@@ -152,12 +152,12 @@ export default function Rightbar({ user }) {
                   src={
                     friend.profilePicture
                       ? friend.profilePicture
-                      : "./img/noAvatar.png"
+                      : "../img/noAvatar.png"
                   }
                   alt=""
                   className="rightbarFollowingImg"
                 />
-                <span className="rightbarFollowingName">{friend.username}</span>
+                <span className="rightbarFollowingName" style={{ textDecoration: "none" }}>{friend.username}</span>
               </div>
             </Link>
           ))}

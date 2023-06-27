@@ -35,7 +35,7 @@ export default function Profile() {
                 src={
                   user.coverPicture
                     ? user.coverPicture
-                    : "./noCover.png"
+                    : "../img/hello.png"
                 }
                 alt=""
               />
@@ -44,7 +44,7 @@ export default function Profile() {
                 src={
                   user.profilePicture
                     ? user.profilePicture
-                    : "./noAvatar.png"
+                    : "../img/noAvatar.png"
                 }
                 alt=""
               />
