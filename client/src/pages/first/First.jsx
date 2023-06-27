@@ -173,34 +173,19 @@ const Img = styled.img`
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-auto">
           <div>
-            {/* <h3 class="float-md-left mb-0">EdApp</h3>
-             */}
+
             <main class="px-3">
-            {/* <nav class="nav nav-masthead justify-content-center float-md-right">
-                    <a class="nav-link active" aria-current="page" href="/home" >Home</a>
-                    <a class="nav-link" href="/login">Login</a>
-                    <a class="nav-link" href="/register">Register</a>
 
-
-            </nav> */}
-            {/* <h1>Welcome to EdApp</h1>
-            {/* <p class="lead"><br></br> 555-3 Mateo St.
-                Los Angeles, CA <br></br>
-                The Culinary team is always crafting new dishes inspired by California produce and local flavors!</p>
-            <a href="/login" class="btn btn-lg btn-secondary font-weight-bold border-white bg-white">View
-                Menu</a> */}
             </main>
 
           </div>
         </header>
              <Section>
-                   {/* <Navbar /> */}
+
      <Container>
        <Left>
          <Title>Welcome to EdApp</Title>
          <WhatWeDo>
-           {/* <Line src="./img/line.png" /> */}
-           {/* <Subtitle>What we Do</Subtitle> */}
          </WhatWeDo>
          <Desc>
            we enjoy creating immersive, human interactive experiences.
@@ -225,7 +210,7 @@ const Img = styled.img`
             </Sphere>
           </Suspense>
         </Canvas>
-        <Img src="./img/kane.png" />
+        <Img src="./img/friend1.png" />
       </Right>
     </Container>
   </Section>
