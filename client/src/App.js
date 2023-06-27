@@ -23,10 +23,8 @@ import { AuthContext } from "./context/AuthContext";
 function App() {
   const {user} = useContext(AuthContext)
   return (
-
-      
-
     <Router> 
+      <First/>
       <Routes>  
         <Route path="/home" element={<First/>} exact />
         <Route exact path="/" element={user ? <Home/> : <Register/>}  />
