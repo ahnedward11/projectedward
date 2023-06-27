@@ -14,7 +14,7 @@ export default function Likedpost() {
 
     useEffect(() => {
         const fetchUser = async () => {
-          const res = await axios.get(`/users?username=${username}`);
+          const res = await axios.get(`https://idkman-fpcq.onrender.com/api/users?username=${username}`);
           setUser(res.data);
         };
         fetchUser();

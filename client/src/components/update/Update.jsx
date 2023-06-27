@@ -26,7 +26,7 @@ import { useParams } from "react-router";
             coverPicture : document.getElementById('cover').value,
           };
         try {
-            await axios.put(`/users/${user._id}`, updatedUser)
+            await axios.put(`https://idkman-fpcq.onrender.com/api/users/${user._id}`, updatedUser)
 
         } catch (err) {
         }

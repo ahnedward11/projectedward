@@ -14,7 +14,7 @@ export default function Message({ message, own}) {
           src={
             user.profilePicture
               ? user.profilePicture
-              : PF + "person/noAvatar.png"
+              : "./img/noAvatar.png"
           }
           alt=""
         />

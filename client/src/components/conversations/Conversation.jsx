@@ -11,7 +11,7 @@ export default function Conversation({ conversation, currentUser }) {
 
     const getUser = async () => {
       try {
-        const res = await axios("/users?userId=" + friendId);
+        const res = await axios("https://idkman-fpcq.onrender.com/api/users?userId=" + friendId);
         // console.log(res);
         // console.log("hello")
         setUser(res.data);
@@ -30,7 +30,7 @@ export default function Conversation({ conversation, currentUser }) {
         src={
           user?.profilePicture
             ? user.profilePicture
-            : PF + "person/noAvatar.png"
+            : "./img/noAvatar.png"
         }
         alt=""
       />

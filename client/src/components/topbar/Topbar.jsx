@@ -22,7 +22,7 @@ export default function Topbar() {
     var search = document.getElementById('searchbar').value
     console.log(search)
     try {
-      await axios.get("/users?username=" + search)
+      await axios.get("https://idkman-fpcq.onrender.com/api/users?username=" + search)
       navigate("/profile/" + search)
     } catch (err) {
       alert("This user does not exist!");
@@ -34,7 +34,7 @@ export default function Topbar() {
   useEffect(() => {
     const getFriends = async () => {
       try {
-        const friendList = await axios.get("/users/friends/" + user._id);
+        const friendList = await axios.get("https://idkman-fpcq.onrender.com/api/users/friends/" + user._id);
         setFriends(friendList.data);
       } catch (err) {
         console.log(err);

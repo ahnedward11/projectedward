@@ -154,7 +154,7 @@ const Img = styled.img`
         password: password.current.value,
       };
       try {
-        await axios.post("/auth/register", user);
+        await axios.post("https://idkman-fpcq.onrender.com/api/auth/register", user);
         navigate("/login")
       } catch (err) {
         console.log(err);
@@ -205,9 +205,11 @@ const Img = styled.img`
          <Desc>
            we enjoy creating immersive, human interactive experiences.
          </Desc>
-         <a href="/login">
+         {/* <a href="/login"> */}
+         <Link to="/login" style={{ textDecoration: "none" }} >
          <Button>Log In</Button>
-         </a>
+         </Link>
+         {/* </a> */}
        </Left>
        <Right>
          <Canvas>
@@ -225,7 +227,7 @@ const Img = styled.img`
             </Sphere>
           </Suspense>
         </Canvas>
-        <Img src="./img/kane.png" />
+        <Img src="./img/friend1.png" />
       </Right>
     </Container>
   </Section>

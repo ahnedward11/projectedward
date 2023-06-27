@@ -9,7 +9,7 @@ export default function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
 
   useEffect(() => {
     const getFriends = async () => {
-      const res = await axios.get("/users/friends/" + currentId);
+      const res = await axios.get("https://idkman-fpcq.onrender.com/api/users/friends/" + currentId);
       setFriends(res.data);
     };
 
@@ -23,7 +23,7 @@ export default function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
   const handleClick = async (user) => {
     try {
       const res = await axios.get(
-        `/conversations/find/${currentId}/${user._id}`
+        `https://idkman-fpcq.onrender.com/api/conversations/find/${currentId}/${user._id}`
       );
       setCurrentChat(res.data);
     } catch (err) {
@@ -40,8 +40,8 @@ export default function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
               className="chatOnlineImg"
               src={
                 currentId?.profilePicture
-                  ? PF + currentId.profilePicture
-                  : PF + "person/noAvatar.png"
+                  ? currentId.profilePicture
+                  : "./img/noAvatar.png"
               }
               alt=""
             />

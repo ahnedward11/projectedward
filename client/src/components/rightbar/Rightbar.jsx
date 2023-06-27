@@ -21,7 +21,7 @@ export default function Rightbar({ user }) {
   useEffect(() => {
     const getFriends = async () => {
       try {
-        const friendList = await axios.get("/users/friends/" + user._id);
+        const friendList = await axios.get("https://idkman-fpcq.onrender.com/api/users/friends/" + user._id);
         setFriends(friendList.data);
       } catch (err) {
         console.log(err);
@@ -33,12 +33,12 @@ export default function Rightbar({ user }) {
   const handleClick = async () => {
     try {
       if (followed) {
-        await axios.put(`/users/${user._id}/unfollow`, {
+        await axios.put(`https://idkman-fpcq.onrender.com/api/users/${user._id}/unfollow`, {
           userId: currentUser._id,
         });
         dispatch({ type: "UNFOLLOW", payload: user._id });
       } else {
-        await axios.put(`/users/${user._id}/follow`, {
+        await axios.put(`https://idkman-fpcq.onrender.com/api/users/${user._id}/follow`, {
           userId: currentUser._id,
         });
         dispatch({ type: "FOLLOW", payload: user._id });
@@ -55,7 +55,7 @@ export default function Rightbar({ user }) {
       receiverId: user._id,
     };
     try {
-      const convo = await axios.get(`/conversations/find/${currentUser._id}/${user._id}`)
+      const convo = await axios.get(`https://idkman-fpcq.onrender.com/api/conversations/find/${currentUser._id}/${user._id}`)
       console.log(convo)
       if (convo.data){
         console.log("already made")
@@ -65,7 +65,7 @@ export default function Rightbar({ user }) {
         
       }
       else{
-        await axios.post("/conversations", newConversation)
+        await axios.post("https://idkman-fpcq.onrender.com/api/conversations", newConversation)
         
         
       }
@@ -152,7 +152,7 @@ export default function Rightbar({ user }) {
                   src={
                     friend.profilePicture
                       ? friend.profilePicture
-                      : PF + "person/noAvatar.png"
+                      : "./img/noAvatar.png"
                   }
                   alt=""
                   className="rightbarFollowingImg"

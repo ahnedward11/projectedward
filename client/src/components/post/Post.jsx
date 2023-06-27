@@ -24,7 +24,7 @@ export default function Post({ post, uuser }) {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users?userId=${post.userId}`);
+      const res = await axios.get(`https://idkman-fpcq.onrender.com/api/users?userId=${post.userId}`);
       setUser(res.data);
     };
     fetchUser();
@@ -32,7 +32,7 @@ export default function Post({ post, uuser }) {
 
   const likeHandler = () => {
     try{
-      axios.put("/posts/" + post._id +"/like", {userId:currentUser._id})
+      axios.put("https://idkman-fpcq.onrender.com/api/posts/" + post._id +"/like", {userId:currentUser._id})
     }catch(err){}
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
@@ -50,7 +50,7 @@ export default function Post({ post, uuser }) {
                 src={
                   user.profilePicture
                     ? user.profilePicture
-                    : PF + "person/noAvatar.png"
+                    : "./img/noAvatar.png"
                 }
                 alt=""
               />
@@ -71,13 +71,13 @@ export default function Post({ post, uuser }) {
           <div className="postBottomLeft">
             <img
               className="likeIcon"
-              src={`${PF}like.png`}
+              src={"./img/like.png"}
               onClick={likeHandler}
               alt=""
             />
             <img
               className="likeIcon"
-              src={`${PF}heart.png`}
+              src={"./img/heart.png"}
               onClick={likeHandler}
               alt=""
             />
