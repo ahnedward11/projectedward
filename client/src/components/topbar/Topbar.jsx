@@ -10,7 +10,7 @@ import axios from "axios";
 
 export default function Topbar() {
   const { user } = useContext(AuthContext);
-  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  // const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const navigate = useNavigate();
   const [friends, setFriends] = useState([]);
   const { isFetching, dispatch } = useContext(AuthContext);
@@ -121,7 +121,7 @@ export default function Topbar() {
             src={
               user.profilePicture
                 ? user.profilePicture
-                : PF + "person/noAvatar.png"
+                : "./img/noAvatar.png"
             }
             alt=""
             className="topbarImg"
