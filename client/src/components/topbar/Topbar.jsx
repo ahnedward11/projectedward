@@ -10,7 +10,7 @@ import axios from "axios";
 
 export default function Topbar() {
   const { user } = useContext(AuthContext);
-  // const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const navigate = useNavigate();
   const [friends, setFriends] = useState([]);
   const { isFetching, dispatch } = useContext(AuthContext);
@@ -22,7 +22,7 @@ export default function Topbar() {
     var search = document.getElementById('searchbar').value
     console.log(search)
     try {
-      await axios.get("https://idkman-fpcq.onrender.com/api/users?username=" + search)
+      await axios.get("/users?username=" + search)
       navigate("/profile/" + search)
     } catch (err) {
       alert("This user does not exist!");
@@ -34,7 +34,7 @@ export default function Topbar() {
   useEffect(() => {
     const getFriends = async () => {
       try {
-        const friendList = await axios.get("https://idkman-fpcq.onrender.com/api/users/friends/" + user._id);
+        const friendList = await axios.get("/users/friends/" + user._id);
         setFriends(friendList.data);
       } catch (err) {
         console.log(err);
@@ -58,6 +58,8 @@ export default function Topbar() {
   };
   return (
     <div style={{backgroundImage:`url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80")` }}>
+
+    
     <div className="topbarContainer">
       <div className="topbarLeft">
         <Link to="/" style={{ textDecoration: "none" }}>
@@ -69,18 +71,36 @@ export default function Topbar() {
           <form action="" method="get" className="formset" onSubmit={handleSubmit}> 
           <Search className="searchIcon" />
           <input 
+
             className="searchInput"
             id = 'searchbar'
           />
+   
+
+          </form>
+        </div>
+
+
       </div>
       <div className="topbarRight">
         <div className="topbarLinks">
           <Link to="/" style={{ textDecoration: "none" , color: "white"}}>
             <span className="topbarLink">Homepage</span>
           </Link>
-
+          {/* <span className="topbarLink">Timeline</span> */}
         </div>
         <div className="topbarIcons">
+          {/* <div className="topbarIconItem">
+            <Person />
+
+          </div> */}
+          {/* <div className="topbarIconItem">
+            <Link to= "/messenger" style={{ textDecoration: "none", color: "white" }}>
+              <Chat />
+
+            </Link>
+            
+          </div> */}
           <div className="topbarIconItem">
             <form  onSubmit={handleClick}>
 
@@ -96,7 +116,7 @@ export default function Topbar() {
             src={
               user.profilePicture
                 ? user.profilePicture
-                : "./img/noAvatar.png"
+                : PF + "person/noAvatar.png"
             }
             alt=""
             className="topbarImg"
@@ -108,3 +128,21 @@ export default function Topbar() {
   );
 }
 
+
+            {/* <Link to="/login" onSubmit={handleClick} style={{ textDecoration: "none", color: "white" }}> */}
+            {/* <span className="topbarIconBadge">?</span> */}
+            {/* </Link> */}
+
+
+              {/* <button to= "/login" className="loginButton" type="submit" disabled={isFetching}> */}
+                 {/* </button> */}
+
+          //        <div className="topbarIconItem">
+          // <Link to= "/login" type="submit" style={{ textDecoration: "none", color: "white" }}>
+          //   {/* <form  onSubmit={handleClick}> */}
+          //   <button className="loginButton" type="submit" disabled={isFetching}> 
+          //     <ExitToApp />
+          //    </button> 
+          //   {/* </form> */}
+          //   </Link>
+          // </div>
