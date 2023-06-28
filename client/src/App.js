@@ -24,15 +24,15 @@ function App() {
   const {user} = useContext(AuthContext)
   return (
     <Router> 
-      {/* <First/> */}
       <Routes>  
-        <Route path="/home" element={<First/>}/>
-        <Route exact path="/" element={user ? <Home/> : <First/>}/>
-        <Route path="/login" element={user ? <Home/> : <Login />}/>
-        <Route path="/nba" element={<Nba/>}/>
-        <Route path="/register" element={user ? <Home/>  :<Register/>}/>
-        <Route path="/profile/:username" element={user ? <Profile />:<Login />}/>
-        <Route path="/messenger" element={user ? <Messenger/> : <Login />}/>
+      <Route path="/home" element={<First/>} exact />
+      <Route exact path="/" element={user ? <Home/> : <First/>}  />
+      <Route path="/login" element={user ? <Navigate to="/" /> : <Login />}/>
+
+      <Route path="/nba" element={<Nba/>} exact />
+      <Route path="/register" element={user ? <Navigate to ="/" /> :<Register/>} exact />
+      <Route path="/profile/:username" element={user ? <Profile />:<Login />} exact />
+      <Route path="/messenger" element={user ? <Messenger/> : <Login />} exact />
       </Routes>
     </Router>
 
@@ -42,11 +42,3 @@ export default App;
 
 
 
-// <Route path="/home" element={<First/>} exact />
-// <Route exact path="/" element={user ? <Home/> : <First/>}  />
-// <Route path="/login" element={user ? <Navigate to="/" /> : <Login />}/>
-
-// <Route path="/nba" element={<Nba/>} exact />
-// <Route path="/register" element={user ? <Navigate to ="/" /> :<Register/>} exact />
-// <Route path="/profile/:username" element={user ? <Profile />:<Login />} exact />
-// <Route path="/messenger" element={user ? <Messenger/> : <Login />} exact />
