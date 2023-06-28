@@ -16,6 +16,7 @@ export default function Login() {
       { email: email.current.value, password: password.current.value },
       dispatch
     );
+    navigate("/login")
   };
 
   return (
@@ -64,13 +65,6 @@ export default function Login() {
               )}
             </button>
             </Link>
-            {/* <button className="loginRegisterButton">
-              {isFetching ? (
-                <CircularProgress color="white" size="20px" />
-              ) : (
-                "Create a New Account"
-              )}
-            </button> */}
           </form>
         </div>
       </div>
