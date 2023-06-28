@@ -35,7 +35,7 @@ export default function Profile() {
                 src={
                   user.coverPicture
                     ? user.coverPicture
-                    : "../img/hello.png"
+                    : "../img/hello.jpg"
                 }
                 alt=""
               />

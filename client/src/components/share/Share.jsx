@@ -22,6 +22,7 @@ export default function Share() {
     const newPost = {
       userId: user._id,
       desc: desc.current.value,
+      img: "https://images.unsplash.com/photo-1444723121867-7a241cacace9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
     };
     if (file) {
       const data = new FormData();
@@ -74,7 +75,7 @@ export default function Share() {
               <span className="shareOptionText">Photo or Video</span>
               <input
                 style={{ display: "none" }}
-                type="file"
+                type=""
                 id="file"
                 accept=".png,.jpeg,.jpg"
                 onChange={(e) => setFile(e.target.files[0])}
