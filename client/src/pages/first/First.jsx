@@ -163,12 +163,7 @@ const Img = styled.img`
   };
 
   return (
-    
-      
-            
-           
-                
-
+    <>
       <bodyy class="d-flex text-center text-white bg-dark">
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-auto">
@@ -250,7 +245,8 @@ const Img = styled.img`
 
 
 
-
+      </>
+    
 
   );
 }

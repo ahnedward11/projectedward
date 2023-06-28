@@ -19,6 +19,7 @@ export default function Login() {
   };
 
   return (
+    <>
     <div className="login">
       <div className="loginWrapper">
         <div className="loginLeft">
@@ -74,5 +75,6 @@ export default function Login() {
         </div>
       </div>
     </div>
+    </>
   );
 }
