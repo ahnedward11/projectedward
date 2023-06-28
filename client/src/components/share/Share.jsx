@@ -74,7 +74,7 @@ export default function Share() {
               <span className="shareOptionText">Photo or Video</span>
               <input
                 style={{ display: "none" }}
-                type="file"
+                type="text"
                 id="file"
                 accept=".png,.jpeg,.jpg"
                 onChange={(e) => setFile(e.target.files[0])}

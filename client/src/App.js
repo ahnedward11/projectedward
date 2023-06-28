@@ -25,7 +25,6 @@ function App() {
   return (
 
     <Router> 
-      <First/>
       <Routes>  
         
         <Route path="/home" element={<First/>} exact />
