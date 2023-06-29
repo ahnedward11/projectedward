@@ -63,13 +63,6 @@ export default function Login() {
               )}
             </button>
             </Link>
-            {/* <button className="loginRegisterButton">
-              {isFetching ? (
-                <CircularProgress color="white" size="20px" />
-              ) : (
-                "Create a New Account"
-              )}
-            </button> */}
           </form>
         </div>
       </div>

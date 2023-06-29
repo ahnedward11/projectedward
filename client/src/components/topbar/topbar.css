@@ -45,7 +45,7 @@
   
   .searchInput {
     border: none;
-  
+    align-items: center;
     width: 70%;
   }
   
